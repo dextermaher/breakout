@@ -1,14 +1,40 @@
-console.log('[MAIN] hi');
 
 
 // OUR GLOBAL OBJECTS
-let paddleController;
+let paddle;
 let drawController;
+let ball;
+let env;
+
 
 function main() {
   // do any start-up work you want here
-  paddleController = new PaddleController('Bobo');
-  drawController = new DrawController(400, 400);
+  env               = new Environment();
+  paddle            = new PaddleController();
+  drawController    = new DrawController();
+  ball              = new BallController();
+}
+function updateGame() {
+  if (drawController) {
+
+    //update all controllers
+    paddle.update();
+    ball.update();
+
+    // ALWAYS DRAW LAST
+    drawController.update();
+  }
 }
 // do work after PROCESSING has loaded
 if (main) window.onload = main;
+
+
+
+// ===--===--===--===--===--===--===--===--===--===--
+// Using Processing... so for now we just let
+// it call the draw function and we redirect it to
+// our own drawController's draw()
+// ===--===--===--===--===--===--===--===--===--===--
+function draw() {
+  updateGame();
+}
