@@ -13,6 +13,7 @@ function main() {
   paddle            = new PaddleController();
   drawController    = new DrawController();
   ball              = new BallController();
+  wall              = new WallController();
 }
 function updateGame() {
   if (drawController) {
@@ -20,6 +21,7 @@ function updateGame() {
     //update all controllers
     paddle.update();
     ball.update();
+    wall.update();
 
     // ALWAYS DRAW LAST
     drawController.update();

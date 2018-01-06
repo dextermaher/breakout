@@ -10,6 +10,10 @@ class Environment {
         this.ballRadius             = 10;
         this.paddleWidth            = 100;
         this.paddleHeight           = 20;
+
+
+        this.brickWidth             = 40;
+        this.brickHeight            = 20;
     }
     update() {}
 }

@@ -12,6 +12,18 @@ class BallController {
         this._updateForPaddle();
         this._updatePosition();
     }
+    flipVelocityX(){
+        this.velocityX *= -1;
+    }
+
+    flipVelocityY(){
+        this.velocityY *= -1;
+    }
+
+
+
+
+
     _updatePosition() {
         this.x          += this.velocityX;
         this.y          += this.velocityY;
@@ -22,17 +34,17 @@ class BallController {
         // BOUNCE OFF WALLS
         // change velocityX if x is out of bounds
         if (this.x > env.width || this.x < 0) {
-            this.velocityX *= -1;
+            this.flipVelocityX();
         }
 
         // change velocityY if y is out of bounds
         // check top
         if (this.y < 0) {
-            this.velocityY *= -1;
+            this.flipVelocityY();
         }
         // check bottom
         else if (env.shouldBounceOffBottom && this.y > env.height) {
-            this.velocityY *= -1;
+            this.flipVelocityY();
         }
     }
     _updateForPaddle() {
@@ -40,10 +52,8 @@ class BallController {
         if (this.y >= paddle.top && this.y <= paddle.bottom) {
             // ball hit paddle
             if (this.x >= paddle.left && this.x <= paddle.right){
-                this.velocityY *= -1;
+                this.flipVelocityY();
             }   
         }
-
-       
     }
 }
