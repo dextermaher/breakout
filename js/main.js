@@ -13,7 +13,7 @@ function main() {
   paddle            = new PaddleController();
   drawController    = new DrawController();
   ball              = new BallController();
-  wall              = new WallController(levelConfigs[0]);
+  wall              = new WallController(levelConfigs[2]);
 }
 function updateGame() {
   if (drawController) {
@@ -57,6 +57,16 @@ let levelConfigs = [
     title           : 'You aint gettn outta this one',
     bricksPerRow    : 15,
     rowCount        : 6,
+
+    brickGap        : 0,
+    wallGap         : 0,
+    rowGap          : 0,
+    ballVelocityY   : 7,
+  },
+  {
+    title           : 'You aint aint gettn outta this one',
+    bricksPerRow    : 25,
+    rowCount        : 22,
 
     brickGap        : 0,
     wallGap         : 0,

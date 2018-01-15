@@ -6,6 +6,7 @@ class BallController {
         this.velocityX  = env.ballVelocityX;
         this.velocityY  = env.ballVelocityY;
         this.radius     = env.ballRadius;
+        this.height     = env.ballRadius * 2;
     }
     update() {
         this._updateForBoundaries();

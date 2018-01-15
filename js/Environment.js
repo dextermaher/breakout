@@ -14,6 +14,7 @@ class Environment {
 
         this.brickWidth             = 40;
         this.brickHeight            = 20;
+        this.maxBrickHeight         = 15;
     }
     update() {}
 }

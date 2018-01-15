@@ -3,15 +3,33 @@ class WallController {
         // create our model
         this.allBricks      = [];
 
-        let brickWidth = 40;
-        let brickHeight = 20;
+        this.topBound                = ball.height * 3;
+        this.wallHeight              = ball.height * 10;
+        this.bottomBound             = this.wallHeight + this.topBound;
+      
+        this.brickWidth              = (env.width - 2) / config.bricksPerRow; // -2 for box borders to show
+        this.brickHeight             = Math.min(this.wallHeight / config.rowCount, env.maxBrickHeight);
+  
+        for (let r = 0; r < config.rowCount; r++) {
+            
+            for (let c = 0; c < config.bricksPerRow; c++) {
 
 
-        for (let i = 0; i < config.bricksPerRow; i++) {
-          let brickX = 30 * i;
-          this.allBricks.push(new Brick(brickX, 150, env.brickWidth, env.brickHeight, 3));
+
+                let brickX              = this.brickWidth * c;
+                let brickY              = this.brickHeight * r + this.topBound;      // todo : real y
+
+console.log(this.topBound);
+
+
+
+                let brickPoints         = 3;        // todo : need points            
+                this.allBricks.push(new Brick(brickX, brickY, this.brickWidth, this.brickHeight, brickPoints));
+            }
+     
         }
 
+        
     }
     update() {
         // look at all bricks
