@@ -1,14 +1,15 @@
 class WallController {
-    constructor() {
+    constructor(config) {
         // create our model
         this.allBricks      = [];
 
         let brickWidth = 40;
         let brickHeight = 20;
-        
 
-        for (let i = 0; i < 8; i++) {
-            this.allBricks.push(new Brick(30 * i, 150, env.brickWidth, env.brickHeight, 3));            
+
+        for (let i = 0; i < config.bricksPerRow; i++) {
+          let brickX = 30 * i;
+          this.allBricks.push(new Brick(brickX, 150, env.brickWidth, env.brickHeight, 3));
         }
 
     }
@@ -24,6 +25,9 @@ class WallController {
         }
     }
 
+    /**
+     * INTERNALS
+     */
     _isAHit(brick){
 
           // ball y inside brick
@@ -36,7 +40,7 @@ class WallController {
 
         return false;
     }
-    _handleAHit(brickIndex) {                
+    _handleAHit(brickIndex) {
         // remove brick from array
         this.allBricks.splice(brickIndex, 1);
 
