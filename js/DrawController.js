@@ -13,7 +13,7 @@ class DrawController {
     this._clearScreen();
     this._drawPaddle();
     this._drawBall();
-    this._drawWall();
+    this._drawLevel();
   }
   _clearScreen() {
     background(207, 254, 255);
@@ -25,10 +25,10 @@ class DrawController {
     ellipse(ball.x, ball.y, ball.radius, ball.radius);
   }
 
-  _drawWall() {
+  _drawLevel() {
     let aBrick;
-    for (let i = 0; i < wall.allBricks.length; i++) {
-      aBrick = wall.allBricks[i];
+    for (let i = 0; i < level.wall.allBricks.length; i++) {
+      aBrick = level.wall.allBricks[i];
       rect(aBrick.x, aBrick.y, aBrick.width, aBrick.height, aBrick.points);
     }
   }

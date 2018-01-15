@@ -5,15 +5,27 @@ let paddle;
 let drawController;
 let ball;
 let env;
+let currentConfig;
 
 
 function main() {
+
+  currentConfig    = levelConfigs[0];
+
   // do any start-up work you want here
+
+  // #1
   env               = new Environment();
+
+  // #2
+  ball              = new BallController();
+
+  // #3
+  level             = new LevelController();
+  
+
   paddle            = new PaddleController();
   drawController    = new DrawController();
-  ball              = new BallController();
-  wall              = new WallController(levelConfigs[2]);
 }
 function updateGame() {
   if (drawController) {
@@ -21,7 +33,7 @@ function updateGame() {
     //update all controllers
     paddle.update();
     ball.update();
-    wall.update();
+    level.update();
 
     // ALWAYS DRAW LAST
     drawController.update();
@@ -66,12 +78,12 @@ let levelConfigs = [
   {
     title           : 'You aint aint gettn outta this one',
     bricksPerRow    : 25,
-    rowCount        : 22,
+    rowCount        : 12,
 
     brickGap        : 0,
     wallGap         : 0,
     rowGap          : 0,
-    ballVelocityY   : 7,
+    ballVelocityY   : 1,
   }
 ];
 

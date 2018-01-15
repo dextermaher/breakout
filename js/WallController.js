@@ -1,42 +1,25 @@
 class WallController {
-    constructor(config) {
+    constructor(topBound, wallHeight) {
         // create our model
-        this.allBricks      = [];
-
-        this.topBound                = ball.height * 3;
-        this.wallHeight              = ball.height * 10;
-        this.bottomBound             = this.wallHeight + this.topBound;
-      
-        this.brickWidth              = (env.width - 2) / config.bricksPerRow; // -2 for box borders to show
-        this.brickHeight             = Math.min(this.wallHeight / config.rowCount, env.maxBrickHeight);
+        this.allBricks               = [];
+        this.brickWidth              = (env.width - 2) / currentConfig.bricksPerRow; // -2 for box borders to show
+        this.brickHeight             = Math.min(wallHeight / currentConfig.rowCount, env.maxBrickHeight);
   
-        for (let r = 0; r < config.rowCount; r++) {
-            
-            for (let c = 0; c < config.bricksPerRow; c++) {
-
-
-
+        for (let r = 0; r < currentConfig.rowCount; r++) {
+            for (let c = 0; c < currentConfig.bricksPerRow; c++) {
                 let brickX              = this.brickWidth * c;
-                let brickY              = this.brickHeight * r + this.topBound;      // todo : real y
-
-console.log(this.topBound);
-
-
-
-                let brickPoints         = 3;        // todo : need points            
+                let brickY              = this.brickHeight * r + topBound; 
+                let brickPoints         = 3;                                    // todo : need points            
                 this.allBricks.push(new Brick(brickX, brickY, this.brickWidth, this.brickHeight, brickPoints));
-            }
-     
+            }     
         }
-
-        
     }
     update() {
         // look at all bricks
-        for (let i = 0; i < wall.allBricks.length; i++) {
+        for (let i = 0; i < this.allBricks.length; i++) {
 
             // test if ball is on brick
-            if (this._isAHit(wall.allBricks[i])) {
+            if (this._isAHit(this.allBricks[i])) {
                 this._handleAHit(i);
                 continue;
             }

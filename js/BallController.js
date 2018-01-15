@@ -4,7 +4,7 @@ class BallController {
         this.x          = env.ballStartX;
         this.y          = env.ballStartY;
         this.velocityX  = env.ballVelocityX;
-        this.velocityY  = env.ballVelocityY;
+        this.velocityY  = currentConfig.ballVelocityY;
         this.radius     = env.ballRadius;
         this.height     = env.ballRadius * 2;
     }
