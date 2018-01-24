@@ -1,6 +1,7 @@
 class WallController {
     constructor(topBound, wallHeight) {
         // create our model
+        this.bricksDestroyed                  = 0; 
         this.allBricks               = [];
         this.brickWidth              = (env.width - 2) / currentConfig.bricksPerRow; // -2 for box borders to show
         this.brickHeight             = Math.min(wallHeight / currentConfig.rowCount, env.maxBrickHeight);
@@ -21,6 +22,7 @@ class WallController {
             // test if ball is on brick
             if (this._isAHit(this.allBricks[i])) {
                 this._handleAHit(i);
+                this.bricksDestroyed ++;
                 continue;
             }
         }

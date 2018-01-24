@@ -31,6 +31,12 @@ class DrawController {
       aBrick = level.wall.allBricks[i];
       rect(aBrick.x, aBrick.y, aBrick.width, aBrick.height, aBrick.points);
     }
+    text("Lives: " + env.lives, 100, 10);
+    text("Points: " + level.wall.bricksDestroyed, 10, 10);
+
+    if (ball.y > env.height && ball.y < env.height +6) {
+      env.lives --
+    }
   }
   
 }
