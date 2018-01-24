@@ -1,10 +1,7 @@
 class BallController {
     constructor() {
         // create our model
-        this.x          = env.ballStartX;
-        this.y          = env.ballStartY;
-        this.velocityX  = env.ballVelocityX;
-        this.velocityY  = currentConfig.ballVelocityY;
+        this.resetToStartPosition();
         this.radius     = env.ballRadius;
         this.height     = env.ballRadius * 2;
     }
@@ -19,6 +16,12 @@ class BallController {
 
     flipVelocityY(){
         this.velocityY *= -1;
+    }
+    resetToStartPosition(){
+        this.x          = env.ballStartX;
+        this.y          = env.ballStartY;
+        this.velocityX  = env.ballVelocityX;
+        this.velocityY  = currentConfig.ballVelocityY;
     }
 
 

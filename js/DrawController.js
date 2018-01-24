@@ -31,12 +31,24 @@ class DrawController {
       aBrick = level.wall.allBricks[i];
       rect(aBrick.x, aBrick.y, aBrick.width, aBrick.height, aBrick.points);
     }
+
+    // fonts : https://www.khanacademy.org/computer-programming/textfontfont-size-processingjs/940030209
     text("Lives: " + env.lives, 100, 10);
     text("Points: " + level.wall.bricksDestroyed, 10, 10);
 
+    // Ball off bottom
     if (ball.y > env.height && ball.y < env.height +6) {
-      env.lives --
-    }
+      env.lives--;
+      
+      // new _drawBall() {}
+      ball.resetToStartPosition();
+      
+      if(env.lives < 0){
+        noLoop();
+      }
+
+
+    }  
   }
   
 }
