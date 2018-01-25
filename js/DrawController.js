@@ -33,9 +33,13 @@ class DrawController {
     }
 
     // fonts : https://www.khanacademy.org/computer-programming/textfontfont-size-processingjs/940030209
-    text("Lives: " + env.lives, 100, 10);
-    text("Points: " + level.wall.bricksDestroyed, 10, 10);
-
+    
+    textFont("waker");
+    textSize(20);
+    fill(30, 20, 10);
+    text("Lives: " + env.lives, 220, 30);
+    text("Points: " + level.wall.bricksDestroyed, 10, 30);
+    fill(255, 255, 255);
     // Ball off bottom
     if (ball.y > env.height && ball.y < env.height +6) {
       env.lives--;
