@@ -8,7 +8,12 @@ class BallController {
     update() {
         this._updateForBoundaries();
         this._updateForPaddle();
-        this._updatePosition();
+
+        // should we update?
+        if ( ! env.isPaused ) {
+            this._updatePosition();
+        }
+
     }
     flipVelocityX(){
         this.velocityX *= -1;

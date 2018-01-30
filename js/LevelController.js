@@ -1,5 +1,6 @@
 class LevelController {
     constructor() {
+
         // create our model
         this.topBound                = ball.height * 3;
         this.wallHeight              = ball.height * 10;

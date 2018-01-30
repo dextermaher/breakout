@@ -23,6 +23,8 @@ class WallController {
             if (this._isAHit(this.allBricks[i])) {
                 this._handleAHit(i);
                 this.bricksDestroyed ++;
+                console.log(this.allBricks.length);
+                
                 continue;
             }
         }

@@ -10,12 +10,19 @@ let currentConfig;
 
 function main() {
 
-  currentConfig    = levelConfigs[0];
 
   // do any start-up work you want here
 
   // #1
   env               = new Environment();
+
+
+  currentConfig    = levelConfigs[env.currentLevel];
+
+  this.setupLevel();
+
+}
+function setupLevel() {
 
   // #2
   ball              = new BallController();
@@ -37,6 +44,22 @@ function updateGame() {
 
     // ALWAYS DRAW LAST
     drawController.update();
+
+    let mouseHasBeenPressed = false;
+    // new level?
+    if (level.wall.allBricks.length === 0) {
+      this.setupLevel();
+      while(mouseHasBeenPressed === false) {
+        // ===--===--===--===--===--===--===--===--===--===-- //  
+        //                                                   //
+        // WRITE onClick COMMAND                            //
+        //                                                 //
+        // ===--===--===--===--===--===--===--===--===--==//
+      }
+
+      
+      
+    }
   }
 }
 // do work after PROCESSING has loaded
