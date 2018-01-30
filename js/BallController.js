@@ -9,7 +9,7 @@ class BallController {
         this._updateForBoundaries();
         this._updateForPaddle();
 
-        // should we update?
+        // ONLY UPDATE BALL POS. WHEN NOT PAUSED
         if ( ! env.isPaused ) {
             this._updatePosition();
         }

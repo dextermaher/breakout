@@ -40,19 +40,19 @@ class DrawController {
     text("Lives: " + env.lives, 220, 30);
     text("Points: " + level.wall.bricksDestroyed, 10, 30);
     fill(255, 255, 255);
+
     // Ball off bottom
     if (ball.y > env.height && ball.y < env.height +6) {
-      env.lives--;
-      
-      // new _drawBall() {}
-      ball.resetToStartPosition();
-      
-      if(env.lives < 0){
-        noLoop();
-      }
-
-
+      this._handleDeathScenario();
     }  
+  }
+  _handleDeathScenario() {
+    env.lives--;
+      
+    // new _drawBall() {}
+    ball.resetToStartPosition();
+    
+    env.isPaused = true;
   }
   
 }

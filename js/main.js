@@ -33,7 +33,13 @@ function setupLevel() {
 
   paddle            = new PaddleController();
   drawController    = new DrawController();
+  env.isPaused      = true;
 }
+/**
+ * MAIN GAME LOOP
+ * 
+ * This function is called over and over
+ */
 function updateGame() {
   if (drawController) {
 
@@ -45,23 +51,28 @@ function updateGame() {
     // ALWAYS DRAW LAST
     drawController.update();
 
-    let mouseHasBeenPressed = false;
-    // new level?
-    if (level.wall.allBricks.length === 0) {
-      this.setupLevel();
-      while(mouseHasBeenPressed === false) {
-        // ===--===--===--===--===--===--===--===--===--===-- //  
-        //                                                   //
-        // WRITE onClick COMMAND                            //
-        //                                                 //
-        // ===--===--===--===--===--===--===--===--===--==//
-      }
+    // DRAW A NEW LEVEL
+    doNewLevelSetupIfAppropriate();
 
-      
-      
-    }
+    // UNPAUSE
+    doUnPauseIfAppropriate();
+
   }
 }
+
+function doNewLevelSetupIfAppropriate() {
+  if (level.wall.allBricks.length === 0) {
+    this.setupLevel();
+  }
+}
+function doUnPauseIfAppropriate() {
+    // console.log(mouseIsPressed, 'mouseIsPressed');
+    if (mouseIsPressed) {
+      env.isPaused = false;
+    }
+}
+
+
 // do work after PROCESSING has loaded
 if (main) window.onload = main;
 

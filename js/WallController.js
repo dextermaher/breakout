@@ -22,9 +22,7 @@ class WallController {
             // test if ball is on brick
             if (this._isAHit(this.allBricks[i])) {
                 this._handleAHit(i);
-                this.bricksDestroyed ++;
-                console.log(this.allBricks.length);
-                
+                this.bricksDestroyed ++;                
                 continue;
             }
         }

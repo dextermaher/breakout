@@ -17,7 +17,7 @@ class Environment {
         this.brickHeight            = 20;
         this.maxBrickHeight         = 15;
 
-        this.isPaused               = false;
+        this.isPaused               = true;
         this.lives                  = 3;
         this.currentLevel           = 0;
     }
