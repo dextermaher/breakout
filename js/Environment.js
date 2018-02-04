@@ -7,6 +7,7 @@ class Environment {
         this.ballStartX             = 100;
         this.ballStartY             = 250;
         this.ballVelocityX          = 5;
+        this.maxVelocityX           = 8;
         this.ballVelocityY          = 5;
         this.ballRadius             = 10;
         this.paddleWidth            = 100;
@@ -17,12 +18,12 @@ class Environment {
 
 
         // start values
-        this.startLives             = 5;
+        this.startLives             = 3;
 
 
         // current values
         this.isPaused               = true;
-        this.lives                  = 5;
+        this.lives                  = 3;
         this.currentLevel           = 0;
         this.bricksDestroyed        = 0;
         this.highScore              = 3;

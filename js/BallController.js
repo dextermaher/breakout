@@ -4,6 +4,8 @@ class BallController {
         this.resetToStartPosition();
         this.radius     = env.ballRadius;
         this.height     = env.ballRadius * 2;
+
+        this.maxVelocityX  = env.maxVelocityX;
     }
     update() {
         this._updateForBoundaries();
@@ -30,11 +32,6 @@ class BallController {
         this.velocityX  = env.ballVelocityX;
         this.velocityY  = currentConfig.ballVelocityY;
     }
-
-
-
-
-
     _updatePosition() {
         this.x          += this.velocityX;
         this.y          += this.velocityY;
@@ -69,8 +66,16 @@ class BallController {
 
                 if (this.velocityY > 0) {
                     this.flipVelocityY();
+                    this._adjustBallXVelocity();
                 }
             }   
         }
+    }
+    _adjustBallXVelocity() {
+        let newVel      = random(this.maxVelocityX, 1);
+        this.velocityX  = (this.velocityX > 0) ? newVel : newVel * -1;
+
+        console.log(this.velocityX, 'this.velocityX');
+        
     }
 }

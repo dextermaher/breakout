@@ -176,3 +176,32 @@ let levelConfigs = [
 ];
 
 
+
+function parseInt(num) {
+  return ~~num;
+}
+function isNaN(val) {
+  if ( val == undefined || val == null) {
+    return true;
+  }
+  return false;
+}
+function random(max, min) {
+  max             = parseInt(max);
+  min             = parseInt(min);
+
+  if (isNaN(max)) {
+      max = 10;
+  }
+  if (isNaN(min)) {
+      min = 0;
+  }
+
+  if (min > max) {
+      var t = min;
+      min = max;
+      max = t;
+  }
+
+  return Math.floor(Math.random() * ((max+1) - min)) + min;
+};

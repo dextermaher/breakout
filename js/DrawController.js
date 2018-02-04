@@ -15,6 +15,7 @@ class DrawController {
     this._drawBall();
     this._drawLevel();
     this._drawHUD();
+    this._drawClickLabel();
   }
 
 
@@ -29,7 +30,7 @@ class DrawController {
   // D R A W
   _drawHUD() {  
     textFont("waker");
-    textSize(20);
+    textSize(15);
     fill(30, 20, 10);
     text("Lives: " + env.lives, 220, 30);
     text("Points: " + env.bricksDestroyed, 10, 30);
@@ -55,11 +56,31 @@ class DrawController {
 
     
     // Ball off bottom
-    if (ball.y > env.height && ball.y < env.height +6) {
+    if (ball.y > env.height) {
       this._handleDeathScenario();
     }  
   }
+  _drawClickLabel() {
+    if (env.isPaused) {
+  
+      let label = 'Click To Continue!';
+  
+      if (env.isPaused && env.currentLevel === 1 && env.bricksDestroyed < 1 && env.lives === env.startLives) {
+        label = "Click To Play!";
+      }
 
+       if (env.lives < 1) {
+        textSize(15);
+        fill(255, 0, 0); 
+        textFont("fantasy");
+        label = "LOSE! Click To Play Again!";
+       }
+
+
+      text(label, 200, 200)  
+    };
+    
+  }
 
   _handleDeathScenario() {
     env.lives--;
