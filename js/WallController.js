@@ -22,7 +22,12 @@ class WallController {
             // test if ball is on brick
             if (this._isAHit(this.allBricks[i])) {
                 this._handleAHit(i);
-                env.bricksDestroyed ++;                
+                env.bricksDestroyed++;    
+                
+                if (env.bricksDestroyed > env.highScore) {
+                    env.highScore = env.bricksDestroyed;
+                  }
+                  
                 continue;
             }
         }

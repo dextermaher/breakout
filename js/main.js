@@ -9,18 +9,8 @@ let currentConfig;
 
 
 function main() {
-
-
-  // do any start-up work you want here
-
-  // #1
   env               = new Environment();
-
-
-  
-
-  this.setupLevel();
-
+  this.setupNewGame();
 }
 function setupLevel() {
   currentConfig    = levelConfigs[env.currentLevel++];
@@ -69,8 +59,20 @@ function doNewLevelSetupIfAppropriate() {
 function doUnPauseIfAppropriate() {
     // console.log(mouseIsPressed, 'mouseIsPressed');
     if (mouseIsPressed) {
+
+      // reset game if needed
+      if(env.lives < 1){
+        setupNewGame();
+      }
+
       env.isPaused = false;
     }
+}
+function setupNewGame(){
+  env.lives           = env.startLives;
+  env.bricksDestroyed = 0;
+  env.currentLevel    = 0;
+  this.setupLevel();
 }
 
 
@@ -87,7 +89,7 @@ if (main) window.onload = main;
 function draw() {
   updateGame();
 }
-let levelConfigs = [
+let levelConfigsHOLD = [
   {
     title           : 'Easy',
     bricksPerRow    : 2,
@@ -110,7 +112,7 @@ let levelConfigs = [
   },
 ];
 
-let levelConfigsHOLD = [
+let levelConfigs = [
   {
     title           : 'Easy',
     bricksPerRow    : 5,

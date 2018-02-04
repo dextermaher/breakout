@@ -7,7 +7,7 @@ class BallController {
     }
     update() {
         this._updateForBoundaries();
-        this._updateForPaddle();
+        this._ballPaddleHitDetect();
 
         // ONLY UPDATE BALL POS. WHEN NOT PAUSED
         if ( ! env.isPaused && env.lives > 0 && env.currentLevel <= levelConfigs.length) {
@@ -58,12 +58,18 @@ class BallController {
             this.flipVelocityY();
         }
     }
-    _updateForPaddle() {
+    _ballPaddleHitDetect() {
+
+        
+        
         // within paddle height
         if (this.y >= paddle.top && this.y <= paddle.bottom) {
             // ball hit paddle
             if (this.x >= paddle.left && this.x <= paddle.right){
-                this.flipVelocityY();
+
+                if (this.velocityY > 0) {
+                    this.flipVelocityY();
+                }
             }   
         }
     }
