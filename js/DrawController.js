@@ -16,6 +16,11 @@ class DrawController {
     this._drawLevel();
     this._drawHUD();
   }
+
+
+
+  //---------------
+  // I N T E R N A L S
   _clearScreen() {
     background(207, 254, 255);
   }

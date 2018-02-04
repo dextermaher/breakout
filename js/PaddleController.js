@@ -12,9 +12,10 @@ class PaddleController {
         this.bottom     = 0;
         this.right      = 0;
 
+        this._maxX      = env.width - this.width;
     }
     update() {
-        this.x          = mouseX;
+        this.x          = Math.min(mouseX, this._maxX);
 
         this.top        = this.y;
         this.left       = this.x;
