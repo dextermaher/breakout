@@ -10,10 +10,12 @@ class BallController {
         this._updateForPaddle();
 
         // ONLY UPDATE BALL POS. WHEN NOT PAUSED
-        if ( ! env.isPaused ) {
+        if ( ! env.isPaused && env.lives > 0 && env.currentLevel <= levelConfigs.length) {
             this._updatePosition();
         }
 
+    
+    
     }
     flipVelocityX(){
         this.velocityX *= -1;

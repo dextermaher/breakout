@@ -17,13 +17,14 @@ function main() {
   env               = new Environment();
 
 
-  currentConfig    = levelConfigs[env.currentLevel];
+  
 
   this.setupLevel();
 
 }
 function setupLevel() {
-
+  currentConfig    = levelConfigs[env.currentLevel++];
+  
   // #2
   ball              = new BallController();
 
@@ -86,13 +87,54 @@ if (main) window.onload = main;
 function draw() {
   updateGame();
 }
-
-
 let levelConfigs = [
   {
     title           : 'Easy',
-    bricksPerRow    : 10,
+    bricksPerRow    : 2,
+    rowCount        : 1,
+
+    brickGap        : 0,
+    wallGap         : 0,
+    rowGap          : 0,
+    ballVelocityY   : 2,
+  },
+  {
+    title           : 'You aint gettn outta this one',
+    bricksPerRow    : 2,
     rowCount        : 2,
+
+    brickGap        : 0,
+    wallGap         : 0,
+    rowGap          : 0,
+    ballVelocityY   : 4,
+  },
+];
+
+let levelConfigsHOLD = [
+  {
+    title           : 'Easy',
+    bricksPerRow    : 5,
+    rowCount        : 2,
+
+    brickGap        : 0,
+    wallGap         : 0,
+    rowGap          : 0,
+    ballVelocityY   : 2,
+  },
+  {
+    title           : 'You aint gettn outta this one',
+    bricksPerRow    : 5,
+    rowCount        : 4,
+
+    brickGap        : 0,
+    wallGap         : 0,
+    rowGap          : 0,
+    ballVelocityY   : 4,
+  },
+  {
+    title           : 'You aint aint gettn outta this one',
+    bricksPerRow    : 5,
+    rowCount        : 5,
 
     brickGap        : 0,
     wallGap         : 0,
@@ -100,24 +142,34 @@ let levelConfigs = [
     ballVelocityY   : 5,
   },
   {
-    title           : 'You aint gettn outta this one',
-    bricksPerRow    : 15,
-    rowCount        : 6,
+    title           : 'You aint aint aint gettn outta this one',
+    bricksPerRow    : 7,
+    rowCount        : 4,
 
     brickGap        : 0,
     wallGap         : 0,
     rowGap          : 0,
-    ballVelocityY   : 7,
+    ballVelocityY   : 6,
   },
   {
-    title           : 'You aint aint gettn outta this one',
-    bricksPerRow    : 25,
-    rowCount        : 12,
+    title           : 'You aint aint aint aint gettn outta this one',
+    bricksPerRow    : 24,
+    rowCount        : 2,
 
     brickGap        : 0,
     wallGap         : 0,
     rowGap          : 0,
-    ballVelocityY   : 1,
+    ballVelocityY   : 6,
+  },
+  {
+    title           : 'You aint aint aint gettn outta this one',
+    bricksPerRow    : 22,
+    rowCount        : 4,
+
+    brickGap        : 0,
+    wallGap         : 0,
+    rowGap          : 0,
+    ballVelocityY   : 8,
   }
 ];
 

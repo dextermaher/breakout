@@ -38,7 +38,7 @@ class DrawController {
     textSize(20);
     fill(30, 20, 10);
     text("Lives: " + env.lives, 220, 30);
-    text("Points: " + level.wall.bricksDestroyed, 10, 30);
+    text("Points: " + env.bricksDestroyed, 10, 30);
     fill(255, 255, 255);
 
     // Ball off bottom
@@ -53,6 +53,8 @@ class DrawController {
     ball.resetToStartPosition();
     
     env.isPaused = true;
+
+    
   }
   
 }
